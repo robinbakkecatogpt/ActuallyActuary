@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kortlek",
+  "type": "object",
+  "required": ["id", "title", "cards"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Unikt id, samma som filnamnet utan .json" },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "cards": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["term", "answer"],
+        "properties": {
+          "term": { "type": "string", "description": "Begreppet/frågan. Unikt inom kortleken." },
+          "answer": { "type": "string", "description": "Rätt svar." },
+          "distractors": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Felaktiga svar i samma form och längd som answer. Används i flerval. Saknas de tas felsvar från andra kort."
+          },
+          "explanation": { "type": "string", "description": "Visas efter svar." },
+          "statements": {
+            "type": "array",
+            "description": "Påståenden för sant/falskt. Saknas de genereras 'term betyder answer'.",
+            "items": {
+              "type": "object",
+              "required": ["text", "true"],
+              "properties": {
+                "text": { "type": "string" },
+                "true": { "type": "boolean" },
+                "explanation": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

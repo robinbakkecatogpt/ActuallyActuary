@@ -1,0 +1,121 @@
+{
+  "id": "reservsattning-grunder",
+  "title": "Reservsättning – grunder",
+  "description": "Centrala begrepp inom skadereservsättning och Solvens II",
+  "tags": ["reservsättning", "solvens II"],
+  "cards": [
+    {
+      "term": "IBNR",
+      "answer": "Reserv för skador som har inträffat men ännu inte rapporterats till bolaget",
+      "distractors": [
+        "Reserv för rapporterade skador som ännu inte är slutreglerade",
+        "Reserv för framtida skador på försäkringar som redan tecknats",
+        "Reserv för skadehanteringskostnader på redan reglerade skador"
+      ],
+      "explanation": "Incurred But Not Reported. Skattas ofta med triangelmetoder, eftersom det inte finns några enskilda skadeärenden att värdera.",
+      "statements": [
+        { "text": "IBNR kan värderas ärende för ärende av skadehandläggare.", "true": false },
+        { "text": "IBNR ingår i avsättningen för oreglerade skador.", "true": true }
+      ]
+    },
+    {
+      "term": "RBNS",
+      "answer": "Reserv för rapporterade skador som ännu inte är slutreglerade",
+      "explanation": "Reported But Not Settled. Bygger ofta på handläggarnas ärendereserver."
+    },
+    {
+      "term": "Skadetriangel",
+      "answer": "Tabell med skadebelopp per skadeår (rader) och utvecklingsperiod (kolumner)",
+      "distractors": [
+        "Tabell med premier per försäkringsår och produkt",
+        "Tabell med skadekvot per månad och land",
+        "Matris med korrelationer mellan riskmoduler"
+      ]
+    },
+    {
+      "term": "Utvecklingsfaktor",
+      "answer": "Kvoten mellan kumulerade skadebelopp i två på varandra följande utvecklingsperioder",
+      "distractors": [
+        "Kvoten mellan inkrementellt och kumulerat skadebelopp i samma period",
+        "Andelen av slutskadekostnaden som är rapporterad vid en viss period",
+        "Kvoten mellan skadekostnad och intjänad premie för ett skadeår"
+      ],
+      "statements": [
+        { "text": "En utvecklingsfaktor på 1,00 betyder att det kumulerade beloppet inte förändrades mellan perioderna.", "true": true }
+      ]
+    },
+    {
+      "term": "Chain ladder",
+      "answer": "Metod som projicerar slutskadekostnaden med utvecklingsfaktorer skattade ur historiska trianglar",
+      "distractors": [
+        "Metod som sätter reserven till förväntad skadekvot gånger intjänad premie",
+        "Metod som väger ihop en a priori-skattning med observerat utfall",
+        "Metod som summerar handläggarnas ärendereserver"
+      ],
+      "explanation": "Bygger på antagandet att historiska utvecklingsmönster är representativa för framtiden.",
+      "statements": [
+        { "text": "Chain ladder förutsätter att historiska utvecklingsmönster gäller även framåt.", "true": true },
+        { "text": "Chain ladder är särskilt stabil för det senaste skadeåret, där lite har hunnit utvecklas.", "true": false, "explanation": "Tvärtom: för outvecklade år multipliceras ett litet observerat belopp med en stor faktor, vilket ger instabila skattningar." }
+      ]
+    },
+    {
+      "term": "Bornhuetter-Ferguson",
+      "answer": "Metod som kombinerar en a priori förväntad slutskadekostnad med utvecklingsmönstret",
+      "distractors": [
+        "Metod som projicerar enbart observerade skador med utvecklingsfaktorer",
+        "Metod som sätter reserven lika med summan av ärendereserverna",
+        "Metod som diskonterar framtida kassaflöden med riskfri ränta"
+      ],
+      "explanation": "Reserven blir a priori-slutskadekostnaden gånger (1 − 1/kumulativ utvecklingsfaktor). Ger stabilare skattningar än chain ladder för outvecklade år.",
+      "statements": [
+        { "text": "Bornhuetter-Ferguson bygger enbart på observerade skador.", "true": false }
+      ]
+    },
+    {
+      "term": "Svansfaktor",
+      "answer": "Faktor som fångar skadeutveckling efter den sista observerade utvecklingsperioden"
+    },
+    {
+      "term": "Best Estimate",
+      "answer": "Sannolikhetsviktat medelvärde av framtida kassaflöden, diskonterat med riskfri räntekurva",
+      "distractors": [
+        "Det mest sannolika enskilda utfallet av framtida kassaflöden, odiskonterat",
+        "Ett försiktigt skattat värde av framtida kassaflöden inklusive säkerhetsmarginal",
+        "Summan av framtida kassaflöden diskonterad med bolagets förväntade avkastning"
+      ],
+      "explanation": "Begreppet kommer från Solvens II. Diskonteringen görs med den riskfria räntekurva som EIOPA publicerar.",
+      "statements": [
+        { "text": "Best Estimate under Solvens II diskonteras inte.", "true": false }
+      ]
+    },
+    {
+      "term": "Riskmarginal",
+      "answer": "Kostnaden för att hålla solvenskapital under avvecklingen av åtagandena",
+      "distractors": [
+        "Skillnaden mellan Best Estimate och den bokförda avsättningen",
+        "En procentuell säkerhetsmarginal som läggs på alla reserver",
+        "Det kapital som krävs för att klara en 1-på-200-årshändelse"
+      ],
+      "explanation": "Ska spegla vad en annan försäkringsgivare skulle kräva för att ta över åtagandena. Beräknas med en kapitalkostnadsmetod.",
+      "statements": [
+        { "text": "Riskmarginalen och solvenskapitalkravet (SCR) är samma sak.", "true": false }
+      ]
+    },
+    {
+      "term": "Actual vs Expected",
+      "answer": "Jämförelse mellan faktiskt utfall och det utfall reservmodellen förväntade sig för perioden",
+      "statements": [
+        { "text": "En stor avvikelse i Actual vs Expected kan tyda på att modellens antaganden behöver ses över.", "true": true }
+      ]
+    },
+    {
+      "term": "Skadekvot",
+      "answer": "Skadekostnad i förhållande till intjänad premie",
+      "distractors": [
+        "Antal skador i förhållande till antal försäkringar",
+        "Driftskostnader i förhållande till premieinkomst",
+        "Utbetalda skador i förhållande till total reserv"
+      ]
+    }
+  ]
+}

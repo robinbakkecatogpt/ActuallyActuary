@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ActuallyActuary</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗂️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+
+  <!-- Start -->
+  <section id="screen-start" class="screen">
+    <header class="top">
+      <h1>ActuallyActuary</h1>
+      <p class="lead">Välj kortlekar och ett sätt att öva.</p>
+    </header>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Kortlekar</h2>
+        <input id="search" type="search" placeholder="Sök titel eller tagg" aria-label="Sök kortlekar">
+      </div>
+      <ul id="deck-list" class="deck-list"></ul>
+      <p id="deck-empty" class="muted" hidden></p>
+      <label class="file-btn">
+        <input id="file-input" type="file" accept=".json,application/json" multiple>
+        Lägg till lokal kortlek
+      </label>
+      <p class="muted small">Lokala kortlekar sparas bara i den här webbläsaren och laddas aldrig upp någonstans.</p>
+    </div>
+
+    <div class="panel">
+      <h2>Läge</h2>
+      <div class="modes" role="radiogroup" aria-label="Läge">
+        <label class="mode"><input type="radio" name="mode" value="flip">
+          <span><b>Vänd kortet</b><small>Se begreppet, tänk efter, vänd.</small></span></label>
+        <label class="mode"><input type="radio" name="mode" value="mc">
+          <span><b>Flerval</b><small>Välj rätt svar bland fyra.</small></span></label>
+        <label class="mode"><input type="radio" name="mode" value="tf">
+          <span><b>Sant eller falskt</b><small>Ta ställning till ett påstående.</small></span></label>
+      </div>
+      <div class="row">
+        <label class="inline">Antal kort
+          <select id="count">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="0">Alla</option>
+          </select>
+        </label>
+        <label class="check"><input type="checkbox" id="focus"> Prioritera kort jag ofta missar</label>
+      </div>
+    </div>
+
+    <p id="start-error" class="error" role="alert" hidden></p>
+    <button id="start-btn" class="primary big">Starta</button>
+  </section>
+
+  <!-- Spel -->
+  <section id="screen-play" class="screen" hidden>
+    <header class="play-bar">
+      <button id="quit-btn" class="ghost">Avsluta</button>
+      <div class="progress" aria-hidden="true"><div id="progress-fill"></div></div>
+      <span id="progress-text" class="muted"></span>
+    </header>
+    <div id="stage"></div>
+    <p id="hint" class="hint"></p>
+  </section>
+
+  <!-- Resultat -->
+  <section id="screen-end" class="screen" hidden>
+    <div class="panel end">
+      <h2 id="end-score"></h2>
+      <p id="end-sub" class="muted"></p>
+      <div class="row">
+        <button id="retry-btn" class="primary">Öva på felen</button>
+        <button id="again-btn" class="secondary">Kör samma igen</button>
+        <button id="home-btn" class="ghost">Till start</button>
+      </div>
+      <h3 id="miss-head" hidden>Att öva mer på</h3>
+      <ul id="miss-list" class="miss-list"></ul>
+    </div>
+  </section>
+
+</main>
+<script src="app.js"></script>
+</body>
+</html>
